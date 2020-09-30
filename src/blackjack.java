@@ -62,7 +62,7 @@
             }else if(numb == 14){
                 return "ace";
             }
-            return numb;
+            return "";
         }
 
         /**
