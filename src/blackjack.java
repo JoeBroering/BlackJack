@@ -49,7 +49,20 @@
          * @param numb number of the card object
          */
         public String getCardName(int numb){
-            return " ";
+            if (numb < 1 || numb > 14){
+                throw new IllegalArgumentException();
+            }
+
+            if (numb == 11){
+                return "jack";
+            } else if (numb == 12){
+                return "queen";
+            }else if(numb == 13){
+                return "king";
+            }else if(numb == 14){
+                return "ace";
+            }
+            return numb;
         }
 
         /**
