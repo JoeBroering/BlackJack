@@ -1,10 +1,9 @@
-package csc439team7;
 
 import org.junit.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class cardTest {
+public class cardTest {
 
     @Test
     public void getNumberTest() {
@@ -28,7 +27,8 @@ class cardTest {
 
     @Test
     public void getSuitName() {
-
+    card mycard = new card(0,3);
+    assertEquals("hearts", mycard.getSuitName(0));
     }
 
     @Test

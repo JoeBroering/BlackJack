@@ -1,4 +1,3 @@
-package csc439team7;
 
 /**
  * testing 5:53
@@ -6,14 +5,13 @@ package csc439team7;
  * @author joebr
  */
 
-public class blackjack {
 
     /**
      * Class used to create a card object
      * @author Jackson Cody
      * @version 1.0
      */
-    class card {
+     class card {
 
         /**
          * Number and suit variables for a card
@@ -73,9 +71,21 @@ public class blackjack {
          * @param suit suit of the card
          */
         public String getSuitName(int suit){
-            return " ";
+            if(suit == 0) {
+                return "hearts";
+            } else if(suit == 1) {
+                return "spades";
+            } else if(suit == 2) {
+                return "clubs";
+                } else if(suit == 3) {
+                return "diamonds";
+            } else {
+                throw new IllegalArgumentException();
+            }
         }
 
 
     }
-}
+
+
+
