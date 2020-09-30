@@ -14,12 +14,15 @@ public class cardTest {
 
     @Test
     public void setNumber() {
-
+        card mycard = new card(3,5);
+        mycard.setNumber(10);
+        assertEquals(10, mycard.getNumber());
     }
 
     @Test
     public void getSuittest() {
-
+        card mycard = new card(1,5);
+        assertEquals(1, mycard.getSuit());
     }
 
     @Test
@@ -33,8 +36,14 @@ public class cardTest {
     assertEquals("hearts", mycard.getSuitName(0));
     }
 
-    @Test
-    public void getNumberName() {
 
+    @Test
+    public void getCardName() {
+        card mycard = new card(3,11);
+        assertEquals("jack", mycard.getCardName(mycard.getNumber()));
+    }
+
+    @Test
+    public void getSuit() {
     }
 }

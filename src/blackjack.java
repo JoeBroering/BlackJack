@@ -41,6 +41,9 @@
          * @param number number of the card
          */
         public void setNumber(int number) {
+            if (number < 1 || number > 14) {
+                throw new IllegalArgumentException();
+            }
             this.number = number;
         }
 
@@ -57,12 +60,13 @@
                 return "jack";
             } else if (numb == 12){
                 return "queen";
-            }else if(numb == 13){
+            } else if(numb == 13){
                 return "king";
-            }else if(numb == 14){
+            } else if(numb == 14){
                 return "ace";
+            } else {
+                return Integer.toString(numb);
             }
-            return "";
         }
 
         /**
