@@ -7,6 +7,8 @@ public class cardTest {
 
     @Test
     public void getNumberTest() {
+        card myCard = new card(0, 10);
+        assertEquals(10, myCard.getNumber());
 
     }
 
