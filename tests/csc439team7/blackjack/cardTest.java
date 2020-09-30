@@ -1,9 +1,30 @@
+package csc439team7.blackjack;
 
 import org.junit.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 public class cardTest {
+
+    @Test
+    public void card() {
+        card myCard = new card(0, 10);
+    }
+
+    @Test (expected = IllegalArgumentException.class)
+    public void card2() {
+        card mycard = new card(-1,10);
+    }
+
+    @Test (expected = IllegalArgumentException.class)
+    public void card3() {
+        card mycard = new card(1,15);
+    }
+
+    @Test (expected = IllegalArgumentException.class)
+    public void card4() {
+        card mycard = new card(-1,15);
+    }
 
     @Test
     public void getNumber() {

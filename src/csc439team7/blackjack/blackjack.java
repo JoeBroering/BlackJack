@@ -1,6 +1,8 @@
-    /**
+package csc439team7.blackjack;
+
+/**
      * Class used to create a card object
-     * @author Jackson Cody
+     * @author Jackson Cody, joebr
      * @version 1.1
      */
      class card {
@@ -54,7 +56,7 @@
          * @version 1.1
          */
         public String getNumberName(int number){
-            if (number < 1 || number > 14){
+            if (number < 1 || number > 14) {
                 throw new IllegalArgumentException();
             }
 
