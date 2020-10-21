@@ -49,4 +49,12 @@ public class deckTest {
         mydeck.pick();
         mydeck.getCard(51);
     }
+
+    @Test
+    public void getCard4() {
+        deck mydeck = new deck();
+        card card = mydeck.getCard(1);
+        assertEquals(card.getNumber(), 2);
+        assertEquals(card.getSuit(), 0);
+    }
 }
