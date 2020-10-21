@@ -9,6 +9,11 @@ import java.util.*;
 class hand {
     private ArrayList<card> hand = new ArrayList<>();
 
+    /**
+     * Default hand constructor.
+     * @version 1.0
+     * @author Bradley Brown
+     */
     public hand(){ }
 
     /**
