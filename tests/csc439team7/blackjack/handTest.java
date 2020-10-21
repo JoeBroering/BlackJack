@@ -2,6 +2,8 @@ package csc439team7.blackjack;
 
 import org.junit.Test;
 
+import java.util.ArrayList;
+
 import static org.junit.Assert.*;
 
 public class handTest {
@@ -28,7 +30,7 @@ public class handTest {
         card mycard = new card(1, 5);
         hand myhand = new hand();
         myhand.addCard(mycard);
-        assertNotNull(myhand);
+        assertNotNull(myhand.getCards());
     }
 
     @Test
@@ -38,7 +40,7 @@ public class handTest {
         myhand.addCard(mycard);
         card mycard2 = new card(2, 4);
         myhand.addCard(mycard2);
-        assertNotNull(myhand);
+        assertNotNull(myhand.getCards());
     }
 
     @Test
