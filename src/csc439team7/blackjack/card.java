@@ -37,18 +37,6 @@ package csc439team7.blackjack;
             return number;
         }
 
-        /**
-         * @version 1.1
-         * sets the number of the card, checking for proper numbering first if not throws IllegalArgument
-         * @param number number of the card
-         * @author joebr
-         */
-        public void setNumber(int number) {
-            if (number < 1 || number > 14) {
-                throw new IllegalArgumentException();
-            }
-            this.number = number;
-        }
 
         /**
          * returns the name of the card if it is a face card
@@ -80,19 +68,6 @@ package csc439team7.blackjack;
          */
         public int getSuit() {
             return suit;
-        }
-
-        /**
-         * setSuit method which changes the suit of the card object, checks for a valid suit first otherwise throws illegal argument
-         * @author joebr
-         * @param suit suit of the card
-         */
-
-        public void setSuit(int suit) {
-            if (suit < 0 || suit > 3) {
-                throw new IllegalArgumentException();
-            }
-            this.suit = suit;
         }
 
         /**

@@ -32,24 +32,6 @@ public class cardTest {
         assertEquals(10, myCard.getNumber());
     }
 
-    @Test
-    public void setNumber() {
-        card mycard = new card(3,5);
-        mycard.setNumber(10);
-        assertEquals(10, mycard.getNumber());
-    }
-
-    @Test (expected = IllegalArgumentException.class)
-    public void setBadNumber() {
-        card mycard = new card(3,5);
-        mycard.setNumber(15);
-    }
-
-    @Test (expected = IllegalArgumentException.class)
-    public void setBadNumber2() {
-        card mycard = new card(3,5);
-        mycard.setNumber(0);
-    }
 
     @Test
     public void getNumberName() {
@@ -88,24 +70,6 @@ public class cardTest {
         assertEquals(3,mycard.getSuit());
     }
 
-    @Test
-    public void setSuit() {
-        card mycard = new card(2,11);
-        mycard.setSuit(3);
-        assertEquals(3, mycard.getSuit());
-    }
-
-    @Test (expected = IllegalArgumentException.class)
-    public void setBadSuit() {
-        card mycard = new card(2,11);
-        mycard.setSuit(4);
-    }
-
-    @Test (expected = IllegalArgumentException.class)
-    public void setBadSuit2() {
-        card mycard = new card(2,11);
-        mycard.setSuit(-1);
-    }
 
     @Test
     public void getSuitName() {
