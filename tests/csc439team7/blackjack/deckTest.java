@@ -6,9 +6,15 @@ import static org.junit.Assert.*;
 
 public class deckTest {
 
+    @Test
+    public void pick(){
+        deck mydeck = new deck();
+        card pick = mydeck.pick();
+        assertNotNull(pick);
+    }
 
     @Test (expected = NoSuchElementException.class)
-    public void pick() {
+    public void pick2() {
         deck mydeck = new deck();
         for(int i = 52; i > 0; i--)
         {
