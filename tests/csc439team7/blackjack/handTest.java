@@ -1,9 +1,6 @@
 package csc439team7.blackjack;
 
 import org.junit.Test;
-
-import java.util.ArrayList;
-
 import static org.junit.Assert.*;
 
 public class handTest {
