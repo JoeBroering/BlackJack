@@ -2,6 +2,11 @@ package csc439team7.blackjack;
 
 import java.util.*;
 
+
+/**
+ * shoe class which has a constructor which takes in the number of desired decks in the shoe. Has a getdeck method which returns the deck at index i in the shoe, numdecks which returns the size, and a pick method which also removes a deck from the shoe when it is emptied
+ * @author joebr
+ */
 class shoe {
     private int numDecks;
     private ArrayList<deck> shoe = new java.util.ArrayList<>();
@@ -44,7 +49,7 @@ class shoe {
 
     /**
      * pick method for the shoe. calculates a random deck from the shoe to draw from, then selects a card randomly from that deck. if the deck is emptied after that selection, that deck is removed from the shoe.
-     * @atuhor joebr
+     * @author joebr
      */
     public card pick()
     {

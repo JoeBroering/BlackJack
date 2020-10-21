@@ -37,4 +37,11 @@ public class shoeTest {
         } //after loop desk is empty
         assertEquals(0, myshoe.numDecks());
     }
+
+    @Test
+    public void pick2() {
+        shoe myshoe = new shoe(1);
+        card mycard = myshoe.pick();
+        assertNotNull(mycard);
+    }
 }
