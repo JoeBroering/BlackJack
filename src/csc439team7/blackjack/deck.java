@@ -3,12 +3,16 @@ package csc439team7.blackjack;
 import java.util.*;
 
 /**
- * deck class which has a private arraylist for the cards in the deck
+ * deck class which has a private arraylist for the cards in the deck, has methods for picking a card randomly, the size of the deck, and getting a card at index i
  * @author joebr
  */
 class deck {
     private ArrayList<card> deck = new ArrayList<>();
 
+    /**
+     * constructor for a deck. runs through a nested for loop to create cards for all 4 suits, and the cards are added to the deck
+     * @author joebr
+     */
     public deck() {
 
         for (int j = 0; j < 4; j++) { //suit 0-3

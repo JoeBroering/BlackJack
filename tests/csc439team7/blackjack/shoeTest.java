@@ -35,5 +35,6 @@ public class shoeTest {
         {
             myshoe.pick();
         } //after loop desk is empty
+        assertEquals(0, myshoe.numDecks());
     }
 }
