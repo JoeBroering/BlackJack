@@ -1,35 +1,58 @@
 package csc439team7.blackjack;
 
-import java.util.ArrayList;
-import java.util.NoSuchElementException;
+import java.util.*;
 
 public class shoe {
     private int numDecks;
-    private ArrayList<shoe> shoe = new java.util.ArrayList<>();
+    private ArrayList<deck> shoe = new java.util.ArrayList<>();
 
 
     public shoe(int numDecks)
     {
         this.numDecks = numDecks;
-        for(int i = 0; i < numDecks; i++) {
-            deck deck = new deck();
+        if(numDecks < 1) {
+            throw new IllegalArgumentException();
         }
 
-
+        for(int i = 0; i < numDecks; i++) {
+            deck deck = new deck();
+            shoe.add(deck);
+        }
     }
 
-    public deck getDeck() {
-    
+    /**
+     * method to return the deck at a particular index in the shoe. checks to make sure its a valid position
+     * @author joebr
+     */
+    public deck getDeck(int i) {
+        if( i < 0 || i > shoe.size()-1) {
+            throw new IllegalArgumentException();
+        }
+        return shoe.get(i);
+    }
+
+    /**
+     * method to return the number of decks in the shoe
+     * @author joebr
+     */
+    public int numDecks() { //number of decks
+        return numDecks;
     }
 
     public card pick()
     {
-        if(shoe.isEmpty()) {
-            throw new NoSuchElementException();
-        }
-        int random = (int)(Math.random()*shoe.size());
 
+        int randomdeck = (int)(Math.random()*shoe.size()); //picks deck
+        deck mydeck = getDeck(randomdeck);
+        card pickedcard = mydeck.pick();
+        if(mydeck.size() == 0) {
+            shoe.remove(randomdeck); //removes the deck if it is empty
+        }
+
+        return pickedcard;
     }
+
+
 
 
 }

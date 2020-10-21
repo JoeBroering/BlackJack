@@ -52,10 +52,10 @@ package csc439team7.blackjack;
 
         /**
          * returns the name of the card if it is a face card
-         * @param number number of the card object
+         * @author joebr
          * @version 1.1
          */
-        public String getNumberName(int number){
+        public String getNumberName(){
             if (number < 1 || number > 14) {
                 throw new IllegalArgumentException();
             }
@@ -97,10 +97,9 @@ package csc439team7.blackjack;
 
         /**
          * returns the name of the suit of the card, and throws an illegal argument if the number isn't between 0 and 3 for a valid suit
-         * @param suit suit of the card
          * @author joebr
          */
-        public String getSuitName(int suit){
+        public String getSuitName(){
             if(suit == 0) {
                 return "hearts";
             } else if(suit == 1) {
