@@ -1,4 +1,5 @@
 package csc439team7.blackjack;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
@@ -10,7 +11,7 @@ abstract class view {
 abstract int buyChips();
 abstract String start() throws Exception;
 abstract int promptBet();
-abstract void showCards(card d1, card p1, card p2);
+abstract void showCards(hand p, hand d);
 }
 
 /**
@@ -74,12 +75,15 @@ class CLIView extends view {
      * @author joebr
      */
     @Override
-    void showCards(card p1, card p2, card d1) {
+    void showCards(hand playerhand, hand dealerhand) {
     System.out.println("Your hand:");
-    System.out.println(p1.getNumberName() + " of " + p2.getSuitName());
-    System.out.println(p2.getNumberName() + " of " + p2.getSuitName());
-    System.out.println("Dealer shows:");
-    System.out.println(d1.getNumberName() + " of " + d1.getSuitName());
+        ArrayList<card> phand = playerhand.getCards();
+        for (int i = 0; i < phand.size(); i++) {
+            System.out.println(phand.get(i).getNumberName() + " of " + phand.get(i).getSuitName());
+        }
+    System.out.println("Dealer Hand:");
+        ArrayList<card> dhand = dealerhand.getCards();
+        System.out.println(dhand.get(0).getNumberName() + " of " + dhand.get(0).getSuitName());
     }
 
 }

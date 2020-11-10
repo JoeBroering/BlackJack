@@ -33,9 +33,9 @@ class hand {
      */
     public ArrayList<card> getCards(){
         ArrayList<card> cards = hand;
-        for (int i = 0; i < hand.size(); i++) {
-            hand.remove(i);
-        }
+       // for (int i = 0; i < hand.size(); i++) {
+       //     hand.remove(i);
+       // }
         return cards;
     }
 

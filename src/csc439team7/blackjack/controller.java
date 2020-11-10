@@ -21,11 +21,20 @@ public class controller {
 
         bet = view.promptBet();
         chips = chips - bet;
+
         card dealerCard1 = myShoe.pick();
         card dealerCard2 = myShoe.pick();
+        hand dealerhand = new hand();
+        dealerhand.addCard(dealerCard1);
+        dealerhand.addCard(dealerCard2);
+
+        hand playerhand = new hand();
         card playerCard1 = myShoe.pick();
         card playerCard2 = myShoe.pick();
-        view.showCards(playerCard1, playerCard2, dealerCard1);
+        playerhand.addCard(playerCard1);
+        playerhand.addCard(playerCard2);
+
+        view.showCards(playerhand, dealerhand);
 
     }
 }
