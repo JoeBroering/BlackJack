@@ -10,7 +10,7 @@ abstract class view {
 
 abstract int buyChips();
 abstract String start() throws Exception;
-abstract int promptBet();
+abstract int promptBet(int chips);
 abstract void showCards(hand p, hand d);
 }
 
@@ -63,10 +63,27 @@ class CLIView extends view {
      * @author joebr
      */
     @Override
-    int promptBet() {
+    int promptBet(int chips) {
         System.out.println("Enter your bet:");
         Scanner myObj = new Scanner(System.in);
         int bet = Integer.parseInt(myObj.nextLine());
+
+        while(true) {
+            if(bet < 10) {
+                System.out.println("Minimum Bet is $10");
+                bet = Integer.parseInt(myObj.next());
+            } else if(bet > 500) {
+                System.out.println("Maximum Bet is $500");
+                bet = Integer.parseInt(myObj.next());
+            } else if(bet > chips) {
+                System.out.println("You only have " + chips + " to bet.");
+                bet = Integer.parseInt(myObj.next());
+            } else {
+                break;
+            }
+        }
+
+
         return bet;
     }
 
