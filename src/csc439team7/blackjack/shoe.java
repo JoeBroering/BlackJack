@@ -53,6 +53,9 @@ class shoe {
      */
     public card pick()
     {
+        if (shoe.size() == 0) {
+            throw new NoSuchElementException();
+        }
 
         int randomdeck = (int)(Math.random()*shoe.size()); //picks deck
         deck mydeck = getDeck(randomdeck);

@@ -26,6 +26,7 @@ public class cardTest {
         card mycard = new card(-1,15);
     }
 
+
     @Test
     public void getNumber() {
         card myCard = new card(0, 10);

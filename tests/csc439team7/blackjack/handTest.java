@@ -8,7 +8,7 @@ public class handTest {
     @Test
     public void addCard() {
         card mycard = new card(3,10);
-        hand myhand=new hand();
+        hand myhand = new hand();
         myhand.addCard(mycard);
         assertEquals(1 ,myhand.size());
     }
@@ -16,7 +16,7 @@ public class handTest {
     public void addCard2() {
         card mycard = new card(1,7);
         card mycard2 = new card(3, 6);
-        hand myhand=new hand();
+        hand myhand = new hand();
         myhand.addCard(mycard);
         myhand.addCard(mycard2);
         assertEquals(2 ,myhand.size());
