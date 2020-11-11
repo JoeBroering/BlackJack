@@ -1,6 +1,9 @@
 package csc439team7.blackjack;
 
 import org.junit.Test;
+
+import java.util.NoSuchElementException;
+
 import static org.junit.Assert.*;
 
 public class shoeTest {
@@ -43,5 +46,15 @@ public class shoeTest {
         shoe myshoe = new shoe(1);
         card mycard = myshoe.pick();
         assertNotNull(mycard);
+    }
+
+    @Test (expected = NoSuchElementException.class)
+    public void pick3() {
+        shoe myshoe = new shoe(1);
+        for(int i = 52; i > 0; i--)
+        {
+            myshoe.pick();
+        }
+        myshoe.pick();
     }
 }

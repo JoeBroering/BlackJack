@@ -49,13 +49,13 @@ package csc439team7.blackjack;
             }
 
             if (number == 11){
-                return "jack";
+                return "Jack";
             } else if (number == 12){
-                return "queen";
+                return "Queen";
             } else if(number == 13){
-                return "king";
+                return "King";
             } else if(number == 14 || number == 1){
-                return "ace";
+                return "Ace";
             } else {
                 return Integer.toString(number);
             }
@@ -76,13 +76,13 @@ package csc439team7.blackjack;
          */
         public String getSuitName(){
             if(suit == 0) {
-                return "hearts";
+                return "Hearts";
             } else if(suit == 1) {
-                return "spades";
+                return "Spades";
             } else if(suit == 2) {
-                return "clubs";
+                return "Clubs";
                 } else if(suit == 3) {
-                return "diamonds";
+                return "Diamonds";
             } else {
                 throw new IllegalArgumentException();
             }
