@@ -24,13 +24,25 @@ class CLIView extends view {
 
     /**
      * the buyChips method requests user input for a number of chips to begin the game with
-     * @author joebr
+     * @author joebr, jcody
+     * @version 1.5
      */
     @Override
     int buyChips() {
         System.out.println("How many chips?");
         Scanner myObj = new Scanner(System.in);
         int chips = Integer.parseInt(myObj.nextLine());
+        while(true){
+            if (chips > 5000){
+                System.out.println("Maximum buy is $5000");
+                chips = Integer.parseInt(myObj.nextLine());
+            } else if (chips < 0){
+                System.out.println("Invalid buy");
+                chips = Integer.parseInt(myObj.nextLine());
+            }else{
+                break;
+            }
+        }
         System.out.println("You have " + chips + " chips");
         return chips;
     }
@@ -67,7 +79,6 @@ class CLIView extends view {
         System.out.println("Enter your bet:");
         Scanner myObj = new Scanner(System.in);
         int bet = Integer.parseInt(myObj.nextLine());
-
         while(true) {
             if(bet < 10) {
                 System.out.println("Minimum Bet is $10");
@@ -82,7 +93,6 @@ class CLIView extends view {
                 break;
             }
         }
-
 
         return bet;
     }
@@ -103,4 +113,27 @@ class CLIView extends view {
         System.out.println(dhand.get(0).getNumberName() + " of " + dhand.get(0).getSuitName());
     }
 
+}
+
+class testView extends view{
+
+    @Override
+    int buyChips() {
+        return 0;
+    }
+
+    @Override
+    String start() throws Exception {
+        return null;
+    }
+
+    @Override
+    int promptBet(int chips) {
+        return 0;
+    }
+
+    @Override
+    void showCards(hand p, hand d) {
+
+    }
 }
