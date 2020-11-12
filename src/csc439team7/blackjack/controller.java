@@ -10,6 +10,7 @@ public class controller {
     private int chips;
     private int bet;
     private String response;
+    private TestView view2;
 
     /**
      * constructor for the controller which takes in a view object.
@@ -19,6 +20,8 @@ public class controller {
     public controller(CLIView view) {
     this.view = view;
     }
+
+    public controller(TestView view2){ this.view2 = view2; }
 
 
     /**
@@ -52,5 +55,35 @@ public class controller {
 
         view.showCards(playerhand, dealerhand);
 
+    }
+
+    /**
+     * This is our test "class" to make sure the logic we have in CLIView would function
+     * @author jcody, joebr, bbrown
+     */
+    public void blackJackTest(){
+        shoe myShoe = new shoe (5);
+        chips = view2.buyChips();
+        chips = view2.buyChips2();
+        chips = view2.buyChips3();
+        try {
+            response = view2.start();
+        } catch (Exception E) {
+            System.exit(0);
+        }
+        try {
+            response = view2.start3();
+        } catch (Exception E) {
+            System.exit(0);
+        }
+        bet = view2.promptBet(chips);
+        bet = view2.promptBet2(chips);
+        bet = view2.promptBet3(chips);
+        bet = view2.promptBet4(chips);
+        try {
+            response = view2.start2();
+        } catch (Exception E) {
+            System.exit(0);
+        }
     }
 }
