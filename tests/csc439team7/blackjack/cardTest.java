@@ -26,6 +26,16 @@ public class cardTest {
         card mycard = new card(-1,15);
     }
 
+    @Test (expected = IllegalArgumentException.class)
+    public void card5() {
+        card mycard = new card(1,0);
+    }
+
+    @Test (expected = IllegalArgumentException.class)
+    public void card6() {
+        card mycard = new card(4,1);
+    }
+
 
     @Test
     public void getNumber() {

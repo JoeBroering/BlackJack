@@ -104,12 +104,12 @@ class CLIView extends view {
     @Override
     void showCards(hand playerhand, hand dealerhand) {
     System.out.println("Your hand:");
-        ArrayList<card> phand = playerhand.getCards();
+        ArrayList<card> phand = playerhand.listCards();
         for (int i = 0; i < phand.size(); i++) {
             System.out.println(phand.get(i).getNumberName() + " of " + phand.get(i).getSuitName());
         }
     System.out.println("Dealer Hand:");
-        ArrayList<card> dhand = dealerhand.getCards();
+        ArrayList<card> dhand = dealerhand.listCards();
         System.out.println(dhand.get(0).getNumberName() + " of " + dhand.get(0).getSuitName());
     }
 
