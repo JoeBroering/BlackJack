@@ -17,7 +17,7 @@ package csc439team7.blackjack;
          * @param number number of the card
          */
         public card (int suit, int number){
-            if (number < 1 || number > 14) {
+            if (number < 1 || number > 13) {
                 throw new IllegalArgumentException();
             }
             if (suit < 0 || suit > 3) {
@@ -37,6 +37,14 @@ package csc439team7.blackjack;
             return number;
         }
 
+        public int getValue() {
+            if (number <= 10 && number >= 2) {
+                return number;
+            } else if (number == 1) {
+                return 11;
+            } else return 10;
+        }
+
 
         /**
          * returns the name of the card if it is a face card
@@ -44,7 +52,7 @@ package csc439team7.blackjack;
          * @version 1.1
          */
         public String getNumberName(){
-            if (number < 1 || number > 14) {
+            if (number < 1 || number > 13) {
                 throw new IllegalArgumentException();
             }
 
@@ -54,7 +62,7 @@ package csc439team7.blackjack;
                 return "Queen";
             } else if(number == 13){
                 return "King";
-            } else if(number == 14 || number == 1){
+            } else if(number == 1){
                 return "Ace";
             } else {
                 return Integer.toString(number);
