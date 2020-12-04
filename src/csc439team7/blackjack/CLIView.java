@@ -163,9 +163,9 @@ public class CLIView extends view{
 
 
     /**
-     * method for player action. the player can currently hit or stand doubling needs to be added.\
+     * method for player action. the player can currently hit, stand or double.\
      * @version 1.1
-     * @author joebr
+     * @author joebr, Bradley Brown
      */
     String play() {
         logger.entering(getClass().getName(), "play");
