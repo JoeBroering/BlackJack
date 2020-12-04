@@ -1,5 +1,5 @@
 package csc439team7.blackjack;
-
+import java.util.logging.Logger;
 import java.util.*;
 
 /**
@@ -7,6 +7,7 @@ import java.util.*;
  * @author joebr
  */
 class deck {
+    private static final Logger logger = Logger.getLogger(deck.class.getName());
     private ArrayList<card> deck = new ArrayList<>();
 
     /**
@@ -14,13 +15,14 @@ class deck {
      * @author joebr
      */
     public deck() {
-
+        logger.entering(getClass().getName(), "deck");
         for (int j = 0; j < 4; j++) { //suit 0-3
             for (int k = 1; k < 14; k++) { //number
                 card card = new card(j,k);
                 deck.add(card);
             }
         }
+        logger.exiting(getClass().getName(), "deck");
     }
 
     /**
@@ -28,13 +30,18 @@ class deck {
      * @author joebr
      */
     public card pick() {
+        logger.entering(getClass().getName(), "pick");
         if (deck.isEmpty()) {
+            logger.info("Deck is empty");
+            logger.exiting(getClass().getName(), "pick");
             throw new NoSuchElementException();
         } else
         {
            int random = (int)(Math.random()*deck.size());
            card picked = getCard(random);
            deck.remove(random);
+            logger.info("Card has been removed from the deck");
+           logger.exiting(getClass().getName(), "pick");
            return picked;
         }
     }
@@ -44,9 +51,14 @@ class deck {
      * @author joebr
      */
     public card getCard(int i) {
+        logger.entering(getClass().getName(), "getCard");
         if( i < 0 || i > deck.size()-1) {
+            logger.info("Illegal index to get card from deck");
+            logger.exiting(getClass().getName(), "getCard");
             throw new IllegalArgumentException();
         }
+        logger.info("Card obtained at index");
+        logger.exiting(getClass().getName(), "getCard");
         return deck.get(i);
     }
 
