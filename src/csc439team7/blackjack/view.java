@@ -4,7 +4,13 @@ import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 
 /**
- * abstract view class that has methods to be implemented in the CLIview.
+ * abstract view class that has methods to be implemented in the CLIview. buyChips prompts the user for the amount of chips to enter the game with.
+ * start prompts the user for whether or not they would like to play the hand
+ * play prompts the user for the action they will take during the hand
+ * promptbet asks the user for the value of their bet.
+ * showCards shows the cards that the player has and the cards the dealer has.
+ * flipDealer shows the hidden card of the dealer after the player finishes their turn.
+ * compare compares the players score to the dealer's score
  * @author joebr
  */
 abstract class view {
