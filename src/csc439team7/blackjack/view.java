@@ -28,7 +28,6 @@ class CLIView extends view {
 
     /**
      * the buyChips method requests user input for a number of chips to begin the game with
-     *
      * @author joebr, jcody
      * @version 1.5
      */
@@ -194,8 +193,6 @@ class CLIView extends view {
 
 
 }
-
-
 
 
 /**

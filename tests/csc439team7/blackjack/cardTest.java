@@ -98,4 +98,23 @@ public class cardTest {
         card mycard = new card(4,3);
     }
 
+
+    @Test
+    public void getValue() {
+        card mycard = new card(1, 11);
+        assertEquals(10, mycard.getValue());
+    }
+
+    @Test
+    public void getValue2() {
+            card mycard = new card(1,8);
+            assertEquals(8, mycard.getValue());
+        }
+
+    @Test
+    public void getValue3() {
+        card mycard = new card(1,1);
+        assertEquals(11, mycard.getValue());
+    }
+
 }
