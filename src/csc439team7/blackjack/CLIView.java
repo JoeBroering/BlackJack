@@ -83,12 +83,15 @@ public class CLIView extends view{
         int bet = Integer.parseInt(myObj.nextLine());
         while (true) {
             if (bet < 10) {
+                logger.info("Invalid Bet: smaller than $10");
                 System.out.println("Minimum Bet is $10");
                 bet = Integer.parseInt(myObj.next());
             } else if (bet > 500) {
+                logger.info("Invalid Bet: larger than $500");
                 System.out.println("Maximum Bet is $500");
                 bet = Integer.parseInt(myObj.next());
             } else if (bet > chips) {
+                logger.info("Invalid Bet: not enough chips");
                 System.out.println("You only have " + chips + " to bet.");
                 bet = Integer.parseInt(myObj.next());
             } else {
@@ -224,13 +227,18 @@ public class CLIView extends view{
      * @author jcody
      */
     void betDouble(int sitch){
+        logger.entering(getClass().getName(), "sitch");
         if (sitch == 1){
+            logger.info("can't double: Don't have 2 cards");
             System.out.println("You don't have 2 cards and cannot double your bet");
         }else if(sitch == 2){
+            logger.info("can't double: Score is not between 9 and 11");
             System.out.println("Your score is not between 9 and 11 so you cannot double your bet");
         }else{
+            logger.info("bet doubled successfully");
             System.out.println("Your bet doubles and you take one hit then stand");
         }
+        logger.exiting(getClass().getName(), "sitch");
     }
 
 

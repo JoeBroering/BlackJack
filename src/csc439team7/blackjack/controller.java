@@ -71,6 +71,7 @@ public class controller {
             while (true) {
                 response = view.play();
                 if (response.equals("Hit")) {
+                    logger.info("player hits");
                     card hitCard = myShoe.pick();
                     playerhand.addCard(hitCard);
                     numPlayerCards += 1;
@@ -86,6 +87,7 @@ public class controller {
                         break;
                     }
                 } else if (response.equals("Stand")) {
+                    logger.info("player stands");
                     playerTotal = 0;
                     ArrayList<card> phand = playerhand.listCards();
                     for (int i = 0; i < phand.size(); i++) {
@@ -93,6 +95,7 @@ public class controller {
                     }
                     break;
                 } else if (response.equals("Double")){
+                    logger.info("player doubles");
                     int sitch;
                     if(numPlayerCards != 2){
                         sitch = 1;
@@ -158,6 +161,7 @@ public class controller {
 
                if (winner == 0) {
                    chips += (2 * bet);
+                   logger.info("player receives chips equal to double their bet");
                }
            }
             logger.exiting(getClass().getName(), "playBlackjack");
