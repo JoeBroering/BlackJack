@@ -88,6 +88,10 @@ public class controller {
                         playerTotal += phand.get(i).getValue();
                     }
                     break;
+                } else if (response.equals("Double")){
+                    if(numPlayerCards != 2){
+
+                    }
                 }
             }
             if (winner == -1) {
