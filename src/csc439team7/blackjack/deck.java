@@ -22,6 +22,7 @@ class deck {
                 deck.add(card);
             }
         }
+        logger.info("deck constructed");
         logger.exiting(getClass().getName(), "deck");
     }
 
@@ -40,7 +41,7 @@ class deck {
            int random = (int)(Math.random()*deck.size());
            card picked = getCard(random);
            deck.remove(random);
-            logger.info("Card has been removed from the deck");
+           logger.info("Card has been removed from the deck");
            logger.exiting(getClass().getName(), "pick");
            return picked;
         }
@@ -68,6 +69,9 @@ class deck {
      * @author joebr
      */
     public int size() {
+        logger.entering(getClass().getName(), "size");
+        logger.info("size of deck obtained");
+        logger.exiting(getClass().getName(), "size");
         return deck.size();
     }
 

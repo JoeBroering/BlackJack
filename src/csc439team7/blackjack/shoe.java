@@ -45,6 +45,7 @@ class shoe {
             throw new IllegalArgumentException();
         }
         logger.info("returns deck to shoe");
+        logger.exiting(getClass().getName(), "getDeck");
         return shoe.get(i);
     }
 
@@ -53,6 +54,9 @@ class shoe {
      * @author joebr
      */
     public int numDecks() { //number of decks
+        logger.entering(getClass().getName(), "numDecks");
+        logger.info("shoe size obtained");
+        logger.exiting(getClass().getName(), "numDecks");
         return shoe.size();
     }
 

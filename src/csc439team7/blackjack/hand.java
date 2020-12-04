@@ -65,6 +65,9 @@ class hand {
      * @author Bradley Brown
      */
     public int size(){
+        logger.entering(getClass().getName(), "size");
+        logger.info("size of hand obtained");
+        logger.exiting(getClass().getName(), "size");
         return hand.size();
     }
 }

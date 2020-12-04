@@ -41,7 +41,12 @@ import java.util.logging.Logger;
          * @version 1.0
          * @author Jackson Cody
          */
-        public int getNumber() { return number; }
+        public int getNumber() {
+            logger.entering(getClass().getName(), "getNumber");
+            logger.info("card number is returned");
+            logger.exiting(getClass().getName(), "getNumber");
+            return number;
+        }
 
         public int getValue() {
             logger.entering(getClass().getName(), "getValue");
@@ -103,6 +108,9 @@ import java.util.logging.Logger;
          * @version 1.0
          */
         public int getSuit() {
+            logger.entering(getClass().getName(), "getSuit");
+            logger.info("suit of card obtained");
+            logger.exiting(getClass().getName(), "getSuit");
             return suit;
         }
 
