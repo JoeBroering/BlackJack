@@ -61,8 +61,14 @@ public class cardTest {
         card mycard = new card(3,1);
         assertEquals("Ace", mycard.getNumberName());
 
-        card mycard2 = new card(3,14);
-        assertEquals("Ace", mycard.getNumberName());
+        card mycard2 = new card(3,11);
+        assertEquals("Jack", mycard2.getNumberName());
+
+        card mycard3 = new card(3,12);
+        assertEquals("Queen", mycard3.getNumberName());
+
+        card mycard4 = new card(3,13);
+        assertEquals("King", mycard4.getNumberName());
     }
 
     @Test (expected = IllegalArgumentException.class)
@@ -84,8 +90,18 @@ public class cardTest {
 
     @Test
     public void getSuitName() {
-        card mycard = new card(1,8);
-        assertEquals("Spades",mycard.getSuitName());
+
+        card mycard = new card(0,8);
+        assertEquals("Hearts",mycard.getSuitName());
+
+        card mycard2 = new card(1,8);
+        assertEquals("Spades",mycard2.getSuitName());
+
+        card mycard3 = new card(2,8);
+        assertEquals("Clubs",mycard3.getSuitName());
+
+        card mycard4 = new card(3,8);
+        assertEquals("Diamonds",mycard4.getSuitName());
     }
 
     @Test (expected = IllegalArgumentException.class)
@@ -96,6 +112,25 @@ public class cardTest {
     @Test (expected = IllegalArgumentException.class)
     public void getBadSuitName2() {
         card mycard = new card(4,3);
+    }
+
+
+    @Test
+    public void getValue() {
+        card mycard = new card(1, 11);
+        assertEquals(10, mycard.getValue());
+    }
+
+    @Test
+    public void getValue2() {
+            card mycard = new card(1,8);
+            assertEquals(8, mycard.getValue());
+        }
+
+    @Test
+    public void getValue3() {
+        card mycard = new card(1,1);
+        assertEquals(11, mycard.getValue());
     }
 
 }
