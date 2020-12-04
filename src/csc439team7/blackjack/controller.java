@@ -13,7 +13,6 @@ public class controller {
     private int chips;
     private int bet;
     private String response;
-    private TestView view2;
 
     /**
      * constructor for the controller which takes in a view object.
@@ -26,17 +25,11 @@ public class controller {
         logger.exiting(getClass().getName(), "controller");
     }
 
-    public controller(TestView view2){
-        logger.entering(getClass().getName(), "controller");
-        this.view2 = view2;
-        logger.entering(getClass().getName(), "controller");
-    }
-
 
     /**
      * blackjack method that controls the logic of the game and sends stuff to the view so it can be seen by the player. Currently game starts, you get chips and choose to play or not (which will occur in a loop if we continue development for multiple hands)
-     * @author joebr
-     * @version 1.0
+     * @author joebr, jcody
+     * @version 1.5
      */
     public void playBlackjack() {
         logger.entering(getClass().getName(), "playBlackjack");
@@ -100,8 +93,33 @@ public class controller {
                     }
                     break;
                 } else if (response.equals("Double")){
+                    int sitch;
                     if(numPlayerCards != 2){
-
+                        sitch = 1;
+                        view.betDouble(sitch);
+                        break;
+                    }else if(playerTotal < 9 || playerTotal > 11){
+                        sitch = 2;
+                        view.betDouble(sitch);
+                    }else{
+                        sitch = 3;
+                        bet = bet * 2;
+                        card hitCard = myShoe.pick();
+                        playerhand.addCard(hitCard);
+                        numPlayerCards += 1;
+                        view.betDouble(sitch);
+                        view.showCards(playerhand, dealerhand);
+                        ArrayList<card> phand = playerhand.listCards();
+                        for (int i = 0; i < phand.size(); i++) {
+                            playerTotal += phand.get(i).getValue();
+                        }
+                        if (playerTotal > 21) {
+                            logger.info("playerTotal is above 21 and Player loses");
+                            view.bust(0);
+                            winner = 1;
+                            break;
+                        }
+                        break;
                     }
                 }
             }
@@ -144,35 +162,5 @@ public class controller {
             logger.exiting(getClass().getName(), "playBlackjack");
         } //closes loop
 
-    }
-
-    /**
-     * This is our test "class" to make sure the logic we have in CLIView would function
-     * @author jcody, joebr, bbrown
-     */
-    public void blackJackTest(){
-        shoe myShoe = new shoe (5);
-        chips = view2.buyChips();
-        chips = view2.buyChips2();
-        chips = view2.buyChips3();
-        try {
-            response = view2.start(chips);
-        } catch (Exception E) {
-            System.exit(0);
-        }
-        try {
-            response = view2.start3();
-        } catch (Exception E) {
-            System.exit(0);
-        }
-        bet = view2.promptBet(chips);
-        bet = view2.promptBet2(chips);
-        bet = view2.promptBet3(chips);
-        bet = view2.promptBet4(chips);
-        try {
-            response = view2.start2();
-        } catch (Exception E) {
-            System.exit(0);
-        }
     }
 }
