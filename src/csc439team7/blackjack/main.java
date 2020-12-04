@@ -3,7 +3,8 @@ import java.util.logging.Logger;
 
 /**
  * contains the main method that starts the game function
- * @author joebr
+ * @version 1.1
+ * @author joebr, Bradley Brown
  */
 public class main {
     private static final Logger logger = Logger.getLogger(main.class.getName());

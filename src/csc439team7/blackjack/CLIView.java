@@ -7,8 +7,8 @@ import java.util.logging.Logger;
 
 /**
  * The CLIview implements the abstract methods in the view.
- * @version 1.0
- * @author joebr
+ * @version 1.1
+ * @author joebr, Bradley Brown
  */
 public class CLIView extends view{
     private static final Logger logger = Logger.getLogger(hand.class.getName());
@@ -16,8 +16,8 @@ public class CLIView extends view{
 
     /**
      * the buyChips method requests user input for a number of chips to begin the game with
+     * @version 1.6
      * @author joebr, jcody
-     * @version 1.5
      */
     @Override
     int buyChips() {
@@ -44,7 +44,7 @@ public class CLIView extends view{
 
     /**
      * start method checks to see if the user would like to play or quit the game. Assumes once they enter play they must play out the hand. has exception throw to controller if user enters exit
-     *
+     * @version 1.1
      * @author joebr
      */
     String start(int chips) throws Exception {
@@ -72,7 +72,7 @@ public class CLIView extends view{
 
     /**
      * prompts bet from user, returns the value to the controller as an integer. needs handling on max/min bet value
-     *
+     * @version 1.1
      * @author joebr
      */
     @Override
@@ -105,7 +105,7 @@ public class CLIView extends view{
 
     /**
      * showCards prints out the card values to the user of their two cards and of the card the dealer shows.
-     *
+     * @version 1.1
      * @author joebr
      */
     @Override
@@ -125,6 +125,7 @@ public class CLIView extends view{
 
     /**
      * shows the dealer's hidden card once the player ends their turn
+     * @version 1.1
      * @author joebr
      */
     @Override
@@ -139,6 +140,7 @@ public class CLIView extends view{
 
     /**
      * method compares the two scores of the player and dealer if neither has busted to determine the winner. returns 0 if the player wins and 1 if the dealer wins
+     * @version 1.1
      * @author joebr
      */
     @Override
@@ -162,6 +164,7 @@ public class CLIView extends view{
 
     /**
      * method for player action. the player can currently hit or stand doubling needs to be added.\
+     * @version 1.1
      * @author joebr
      */
     String play() {
@@ -192,6 +195,7 @@ public class CLIView extends view{
 
     /**
      * method for busting which takes in an integer to indicate which player busted.
+     * @version 1.1
      * @author joebr
      */
     void bust(int person) {
@@ -209,6 +213,7 @@ public class CLIView extends view{
 
     /**
      * printCard gets the card the dealer draws when their score is under 17, has a one second pause for added effect.
+     * @version 1.1
      * @author joebr
      */
     void printCard(card card) throws InterruptedException {
@@ -224,6 +229,7 @@ public class CLIView extends view{
     /**
      * method used to prompt the user as to what happens when they try to double their bet
      * @param sitch determines if the player is able to double the bet or not to display the right prompt
+     * @version 1.0
      * @author jcody
      */
     void betDouble(int sitch){

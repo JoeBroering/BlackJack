@@ -4,8 +4,8 @@ import java.util.ArrayList;
 
 /**
  * controller class that controls the operation of the game and the logic with a play blackjack method that gives information to the view
- * @author joebr
- * @version 1.0
+ * @author joebr, Bradley Brown
+ * @version 1.1
  */
 public class controller {
     private static final Logger logger = Logger.getLogger(controller.class.getName());
@@ -17,7 +17,7 @@ public class controller {
     /**
      * constructor for the controller which takes in a view object.
      * @author joebr
-     * @version 1.0
+     * @version 1.1
      */
     public controller(CLIView view) {
         logger.entering(getClass().getName(), "controller");
@@ -29,7 +29,7 @@ public class controller {
     /**
      * blackjack method that controls the logic of the game and sends stuff to the view so it can be seen by the player. Currently game starts, you get chips and choose to play or not (which will occur in a loop if we continue development for multiple hands)
      * @author joebr, jcody
-     * @version 1.5
+     * @version 1.6
      */
     public void playBlackjack() {
         logger.entering(getClass().getName(), "playBlackjack");
