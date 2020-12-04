@@ -149,7 +149,10 @@ public class CLIView extends view{
                 return response;
             } else if (response.equals("Stand")) {
                 return response;
-            } else {
+            }else if(response.equals("Double")){
+                return response;
+            }
+            else{
                 System.out.println("Input not Recognized");
                 response = myObj.next();
             }
