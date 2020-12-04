@@ -33,9 +33,18 @@ class hand {
      */
     public ArrayList<card> getCards(){
         ArrayList<card> cards = hand;
-       // for (int i = 0; i < hand.size(); i++) {
-       //     hand.remove(i);
-       // }
+        for (int i = 0; i < hand.size(); i++) {
+           hand.remove(i);
+        }
+        return cards;
+    }
+
+    /**
+     * method for printing out the cards in the hand without removal for printing for the user.
+     * @author joebr
+     */
+    public ArrayList<card> listCards() {
+        ArrayList<card> cards = hand;
         return cards;
     }
 
