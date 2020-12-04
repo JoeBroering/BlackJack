@@ -52,9 +52,6 @@ package csc439team7.blackjack;
          * @version 1.1
          */
         public String getNumberName(){
-            if (number < 1 || number > 13) {
-                throw new IllegalArgumentException();
-            }
 
             if (number == 11){
                 return "Jack";
@@ -89,10 +86,8 @@ package csc439team7.blackjack;
                 return "Spades";
             } else if(suit == 2) {
                 return "Clubs";
-                } else if(suit == 3) {
-                return "Diamonds";
             } else {
-                throw new IllegalArgumentException();
+                return "Diamonds";
             }
         }
     }
