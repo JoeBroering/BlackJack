@@ -180,10 +180,7 @@ public class CLIView extends view{
                 logger.info("player doubles");
                 logger.exiting(getClass().getName(), "play");
                 return response;
-            }else if(response.equals("Double")){
-                return response;
-            }
-            else{
+            } else{
                 System.out.println("Input not Recognized");
                 response = myObj.next();
             }
@@ -219,6 +216,21 @@ public class CLIView extends view{
         System.out.println("Dealer drew " + card.getNumberName() + " of " + card.getSuitName());
         logger.info("newly drawn card should be printed");
         logger.exiting(getClass().getName(), "printCard");
+    }
+
+    /**
+     * method used to prompt the user as to what happens when they try to double their bet
+     * @param sitch determines if the player is able to double the bet or not to display the right prompt
+     * @author jcody
+     */
+    void betDouble(int sitch){
+        if (sitch == 1){
+            System.out.println("You don't have 2 cards and cannot double your bet");
+        }else if(sitch == 2){
+            System.out.println("Your score is not between 9 and 11 so you cannot double your bet");
+        }else{
+            System.out.println("Your bet doubles and you take one hit then stand");
+        }
     }
 
 

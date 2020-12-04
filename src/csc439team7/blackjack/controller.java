@@ -101,6 +101,7 @@ public class controller {
                     }else if(playerTotal < 9 || playerTotal > 11){
                         sitch = 2;
                         view.betDouble(sitch);
+                        break;
                     }else{
                         sitch = 3;
                         bet = bet * 2;
