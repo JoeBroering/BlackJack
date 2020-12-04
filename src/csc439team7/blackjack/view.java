@@ -2,6 +2,7 @@ package csc439team7.blackjack;
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
+import java.util.logging.Logger;
 
 /**
  * abstract view class that has methods to be implemented in the CLIview.
@@ -24,8 +25,7 @@ abstract int compare(int player, int dealer);
  * @author joebr
  */
 class CLIView extends view {
-
-
+    private static final Logger logger = Logger.getLogger(CLIView.class.getName());
     /**
      * the buyChips method requests user input for a number of chips to begin the game with
      *
@@ -34,6 +34,7 @@ class CLIView extends view {
      */
     @Override
     int buyChips() {
+        logger.entering(getClass().getName(), "buyChips");
         System.out.println("How many chips?");
         Scanner myObj = new Scanner(System.in);
         int chips = Integer.parseInt(myObj.nextLine());
@@ -48,6 +49,8 @@ class CLIView extends view {
                 break;
             }
         }
+        logger.info("Valid number of chips were bought");
+        logger.exiting(getClass().getName(), "buyChips");
         return chips;
     }
 
@@ -58,6 +61,7 @@ class CLIView extends view {
      * @author joebr
      */
     String start(int chips) throws Exception {
+        logger.entering(getClass().getName(), "start");
         System.out.println("You have " + chips + " chips.");
         System.out.println("Would you like to play? (Play/Quit)");
         Scanner myObj = new Scanner(System.in);
@@ -65,6 +69,7 @@ class CLIView extends view {
 
         while (true) {
             if (response.equals("Quit")) {
+                logger.info("Player quits game");
                 throw new IllegalStateException();
             } else if (!response.equals("Play")) {
                 System.out.println("Input not recognized");
@@ -73,6 +78,8 @@ class CLIView extends view {
                 break;
             }
         }
+        logger.info("New Game starts");
+        logger.exiting(getClass().getName(), "start");
         return response;
     }
 
@@ -83,6 +90,7 @@ class CLIView extends view {
      */
     @Override
     int promptBet(int chips) {
+        logger.entering(getClass().getName(), "promptBet");
         System.out.println("Enter your bet:");
         Scanner myObj = new Scanner(System.in);
         int bet = Integer.parseInt(myObj.nextLine());
@@ -100,7 +108,8 @@ class CLIView extends view {
                 break;
             }
         }
-
+        logger.info("Valid Bet");
+        logger.exiting(getClass().getName(), "promptBet");
         return bet;
     }
 
@@ -111,6 +120,7 @@ class CLIView extends view {
      */
     @Override
     void showCards(hand playerhand, hand dealerhand) {
+        logger.entering(getClass().getName(), "showCards");
         System.out.println("Your hand:");
         ArrayList<card> phand = playerhand.listCards();
         for (int i = 0; i < phand.size(); i++) {
@@ -119,6 +129,8 @@ class CLIView extends view {
         System.out.println("Dealer Hand:");
         ArrayList<card> dhand = dealerhand.listCards();
         System.out.println(dhand.get(0).getNumberName() + " of " + dhand.get(0).getSuitName());
+        logger.info("Both hands should be printed");
+        logger.exiting(getClass().getName(), "showCards");
     }
 
     /**
@@ -127,9 +139,12 @@ class CLIView extends view {
      */
     @Override
     void flipDealer(hand dealerhand) {
+        logger.entering(getClass().getName(), "flipDealer");
         ArrayList<card> dhand = dealerhand.listCards();
         System.out.println("Dealer Flips:");
         System.out.println(dhand.get(1).getNumberName() + " of " + dhand.get(1).getSuitName());
+        logger.info("Dealer reveals hidden card");
+        logger.exiting(getClass().getName(), "flipDealer");
     }
 
     /**
@@ -138,13 +153,18 @@ class CLIView extends view {
      */
     @Override
     int compare(int player, int dealer) {
+        logger.entering(getClass().getName(), "compare");
         System.out.println("Your Score is " + player);
         System.out.println("Dealer Score is " + dealer);
         if(player > dealer) {
             System.out.println("Player Wins!");
+            logger.info("Player should win");
+            logger.exiting(getClass().getName(), "compare");
             return 0;
         } else {
             System.out.println("Dealer Wins!");
+            logger.info("Dealer Should win");
+            logger.exiting(getClass().getName(), "compare");
             return 1;
         }
     }
@@ -155,14 +175,23 @@ class CLIView extends view {
      * @author joebr
      */
     String play() {
+        logger.entering(getClass().getName(), "play");
         System.out.println("What would you like to do? (Hit/Double/Stand)");
         Scanner myObj = new Scanner(System.in);
         String response = myObj.nextLine();
 
         while (true) {
             if (response.equals("Hit")) {
+                logger.info("Player should receive another card next");
+                logger.exiting(getClass().getName(), "play");
                 return response;
             } else if (response.equals("Stand")) {
+                logger.info("Player stands");
+                logger.exiting(getClass().getName(), "play");
+                return response;
+            } else if (response.equals("Double")){
+                logger.info("player doubles");
+                logger.exiting(getClass().getName(), "play");
                 return response;
             } else {
                 System.out.println("Input not Recognized");
@@ -176,10 +205,13 @@ class CLIView extends view {
      * @author joebr
      */
     void bust(int person) {
+        logger.entering(getClass().getName(), "bust");
         if(person == 0) {
+            logger.info("player busted");
             System.out.println("You busted!");
         } else System.out.println("Dealer busted!");
-
+        logger.info("Dealer busted");
+        logger.exiting(getClass().getName(), "bust");
     }
 
     /**
@@ -187,16 +219,17 @@ class CLIView extends view {
      * @author joebr
      */
     void printCard(card card) throws InterruptedException {
+        logger.entering(getClass().getName(), "printCard");
         System.out.println("Dealer Draws Another Card:");
+        logger.info("There should be a one second pause");
         TimeUnit.SECONDS.sleep(1);
         System.out.println("Dealer drew " + card.getNumberName() + " of " + card.getSuitName());
+        logger.info("newly drawn card should be printed");
+        logger.exiting(getClass().getName(), "printCard");
     }
 
 
 }
-
-
-
 
 /**
  * The class that tests the logic within the CLIView class
@@ -345,7 +378,6 @@ class TestView extends view {
                 break;
             }
         }
-
         return bet;
     }
 
@@ -372,7 +404,6 @@ class TestView extends view {
                 break;
             }
         }
-
         return bet;
     }
 
@@ -399,7 +430,6 @@ class TestView extends view {
                 break;
             }
         }
-
         return bet;
     }
 

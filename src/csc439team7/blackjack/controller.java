@@ -1,5 +1,5 @@
 package csc439team7.blackjack;
-
+import java.util.logging.Logger;
 import java.util.ArrayList;
 
 /**
@@ -8,6 +8,7 @@ import java.util.ArrayList;
  * @version 1.0
  */
 public class controller {
+    private static final Logger logger = Logger.getLogger(controller.class.getName());
     private CLIView view;
     private int chips;
     private int bet;
@@ -20,10 +21,16 @@ public class controller {
      * @version 1.0
      */
     public controller(CLIView view) {
-    this.view = view;
+        logger.entering(getClass().getName(), "controller");
+        this.view = view;
+        logger.exiting(getClass().getName(), "controller");
     }
 
-    public controller(TestView view2){ this.view2 = view2; }
+    public controller(TestView view2){
+        logger.entering(getClass().getName(), "controller");
+        this.view2 = view2;
+        logger.entering(getClass().getName(), "controller");
+    }
 
 
     /**
@@ -32,15 +39,17 @@ public class controller {
      * @version 1.0
      */
     public void playBlackjack() {
+        logger.entering(getClass().getName(), "playBlackjack");
         shoe myShoe = new shoe(5);
         chips = view.buyChips();
-
 
         while(true) {
 
             try {
                 response = view.start(chips);
             } catch (Exception E) {
+                logger.info("User specifies to exit game");
+                logger.exiting(getClass().getName(), "playBlackjack");
                 System.exit(0);
             }
 
@@ -78,6 +87,7 @@ public class controller {
                         playerTotal += phand.get(i).getValue();
                     }
                     if (playerTotal > 21) {
+                        logger.info("playerTotal is above 21 and Player loses");
                         view.bust(0);
                         winner = 1;
                         break;
@@ -105,18 +115,21 @@ public class controller {
                    try {
                        view.printCard(dealerCard);
                    } catch (InterruptedException e) {
+                       logger.info("Error with viewing a card after being added to the dealer's hand.");
                        e.printStackTrace();
                    }
                    dealerTotal += dealerCard.getValue();
                }
 
                if (dealerTotal > 21) {
+                   logger.info("dealerTotal is above 21 and Dealer loses");
                    view.bust(1);
                    winner = 0;
                }
 
                //if here both have valid scores time to compare
                if (winner == -1) {
+                   logger.info("Both scores are below 21 and need to be compared");
                    winner = view.compare(playerTotal, dealerTotal);
                }
 
@@ -124,8 +137,8 @@ public class controller {
                    chips += (2 * bet);
                }
            }
+            logger.exiting(getClass().getName(), "playBlackjack");
         } //closes loop
-
 
     }
 
