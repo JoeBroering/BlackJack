@@ -19,9 +19,8 @@ public class controller {
      * @author joebr
      * @version 1.1
      */
-    public controller(CLIView view) {
+    public controller(view view) {
         logger.entering(getClass().getName(), "controller");
-        this.view = view;
         logger.exiting(getClass().getName(), "controller");
     }
 

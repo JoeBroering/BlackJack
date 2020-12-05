@@ -8,6 +8,9 @@ import static org.junit.Assert.*;
 
 public class viewTest {
 
+    testView view = new testView();
+    controller bjcontroltest = new controller(view);
+
     private final InputStream systemIn = System.in;
     private final PrintStream systemOut = System.out;
 
