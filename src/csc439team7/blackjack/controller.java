@@ -28,8 +28,8 @@ public class controller {
 
     /**
      * blackjack method that controls the logic of the game and sends stuff to the view so it can be seen by the player. Currently game starts, you get chips and choose to play or not (which will occur in a loop if we continue development for multiple hands)
-     * @author joebr, jcody
-     * @version 1.6
+     * @author joebr, jcody, Bradley Brown
+     * @version 1.7
      */
     public void playBlackjack() {
         logger.entering(getClass().getName(), "playBlackjack");
