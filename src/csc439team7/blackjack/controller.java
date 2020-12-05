@@ -34,6 +34,8 @@ public class controller {
     public void playBlackjack() {
         logger.entering(getClass().getName(), "playBlackjack");
         shoe myShoe = new shoe(5);
+        int size = myShoe.numDecks();
+        int minimum = size/5;
         chips = view.buyChips();
 
         while(true) {
@@ -52,6 +54,11 @@ public class controller {
             int playerTotal = 0;
             int dealerTotal = 0;
             int winner = -1;
+            if(size == minimum){
+                shoe refill = new shoe(5);
+                myShoe = refill;
+                logger.info("shoe is refilled");
+            }
 
             card dealerCard1 = myShoe.pick();
             card dealerCard2 = myShoe.pick();

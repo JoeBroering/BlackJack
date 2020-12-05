@@ -89,7 +89,4 @@ class shoe {
         return pickedcard;
     }
 
-
-
-
 }
