@@ -4,7 +4,8 @@ import java.util.*;
 
 /**
  * deck class which has a private arraylist for the cards in the deck, has methods for picking a card randomly, the size of the deck, and getting a card at index i
- * @author joebr
+ * @version 1.1
+ * @author joebr, Bradley Brown
  */
 class deck {
     private static final Logger logger = Logger.getLogger(deck.class.getName());
@@ -12,6 +13,7 @@ class deck {
 
     /**
      * constructor for a deck. runs through a nested for loop to create cards for all 4 suits, and the cards are added to the deck
+     * @version 1.1
      * @author joebr
      */
     public deck() {
@@ -22,11 +24,13 @@ class deck {
                 deck.add(card);
             }
         }
+        logger.info("deck constructed");
         logger.exiting(getClass().getName(), "deck");
     }
 
     /**
      * pick method that returns a random card from the deck. needs to be removed after being selected
+     * @version 1.1
      * @author joebr
      */
     public card pick() {
@@ -40,7 +44,7 @@ class deck {
            int random = (int)(Math.random()*deck.size());
            card picked = getCard(random);
            deck.remove(random);
-            logger.info("Card has been removed from the deck");
+           logger.info("Card has been removed from the deck");
            logger.exiting(getClass().getName(), "pick");
            return picked;
         }
@@ -48,6 +52,7 @@ class deck {
 
     /**
      * get method for the deck that returns the card at index i
+     * @version 1.1
      * @author joebr
      */
     public card getCard(int i) {
@@ -65,9 +70,13 @@ class deck {
 
     /**
      * returns the size of the deck by calling the deck's size method
+     * @version 1.1
      * @author joebr
      */
     public int size() {
+        logger.entering(getClass().getName(), "size");
+        logger.info("size of deck obtained");
+        logger.exiting(getClass().getName(), "size");
         return deck.size();
     }
 

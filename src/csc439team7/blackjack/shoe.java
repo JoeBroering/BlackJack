@@ -5,7 +5,8 @@ import java.util.*;
 
 /**
  * shoe class which has a constructor which takes in the number of desired decks in the shoe. Has a getdeck method which returns the deck at index i in the shoe, numdecks which returns the size, and a pick method which also removes a deck from the shoe when it is emptied
- * @author joebr
+ * @version 1.1
+ * @author joebr, Bradley Brown
  */
 class shoe {
     private static final Logger logger = Logger.getLogger(shoe.class.getName());
@@ -14,6 +15,7 @@ class shoe {
 
     /**
      * constructor for shoe which takes in the number of decks in the shoe as an integer. checks to make sure at least 1 deck in the shoe, then creates the shoe using deck objects
+     * @version 1.1
      * @author joebr
      */
     public shoe(int numDecks) {
@@ -35,6 +37,7 @@ class shoe {
 
     /**
      * method to return the deck at a particular index in the shoe. checks to make sure its a valid position
+     * @version 1.1
      * @author joebr
      */
     public deck getDeck(int i) {
@@ -45,19 +48,25 @@ class shoe {
             throw new IllegalArgumentException();
         }
         logger.info("returns deck to shoe");
+        logger.exiting(getClass().getName(), "getDeck");
         return shoe.get(i);
     }
 
     /**
      * method to return the number of decks in the shoe
+     * @version 1.1
      * @author joebr
      */
     public int numDecks() { //number of decks
+        logger.entering(getClass().getName(), "numDecks");
+        logger.info("shoe size obtained");
+        logger.exiting(getClass().getName(), "numDecks");
         return shoe.size();
     }
 
     /**
      * pick method for the shoe. calculates a random deck from the shoe to draw from, then selects a card randomly from that deck. if the deck is emptied after that selection, that deck is removed from the shoe.
+     * @version 1.1
      * @author joebr
      */
     public card pick() {
@@ -79,8 +88,5 @@ class shoe {
         logger.exiting(getClass().getName(), "pick");
         return pickedcard;
     }
-
-
-
 
 }

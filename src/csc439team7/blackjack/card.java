@@ -3,8 +3,8 @@ import java.util.logging.Logger;
 
 /**
      * Class used to create a card object
-     * @author Jackson Cody, joebr
-     * @version 1.1
+     * @author Jackson Cody, joebr, Bradley Brown
+     * @version 1.2
      */
      class card {
         private static final Logger logger = Logger.getLogger(card.class.getName());
@@ -13,9 +13,10 @@ import java.util.logging.Logger;
 
         /**
          * constructor for card that takes in a suit and a number and checks for illegal arguments
-         * @version 1.1
+         * @version 1.2
          * @param suit suit of the card
          * @param number number of the card
+         * @author Jackson Cody, joebr
          */
         public card (int suit, int number){
             logger.entering(getClass().getName(), "card");
@@ -38,10 +39,15 @@ import java.util.logging.Logger;
         /**
          * gets the Number of the card, stays at 11,12,13,14 for face cards. does not need to handle illegal arguments because other methods handle them before ever reaching this one.
          * @return number of the card object
-         * @version 1.0
+         * @version 1.1
          * @author Jackson Cody
          */
-        public int getNumber() { return number; }
+        public int getNumber() {
+            logger.entering(getClass().getName(), "getNumber");
+            logger.info("card number is returned");
+            logger.exiting(getClass().getName(), "getNumber");
+            return number;
+        }
 
         public int getValue() {
             logger.entering(getClass().getName(), "getValue");
@@ -64,7 +70,7 @@ import java.util.logging.Logger;
         /**
          * returns the name of the card if it is a face card
          * @author joebr
-         * @version 1.1
+         * @version 1.2
          */
         public String getNumberName(){
             logger.entering(getClass().getName(), "getNumberName");
@@ -100,14 +106,19 @@ import java.util.logging.Logger;
         /**
          * gets the int value of the suit, 0 hearts 1 spades 2 clubs 3 diamonds. does not check for illegal arguments because other methods handle them before reaching this one.
          * @return suit of the card object
-         * @version 1.0
+         * @version 1.1
+         * @author joebr
          */
         public int getSuit() {
+            logger.entering(getClass().getName(), "getSuit");
+            logger.info("suit of card obtained");
+            logger.exiting(getClass().getName(), "getSuit");
             return suit;
         }
 
         /**
          * returns the name of the suit of the card, and throws an illegal argument if the number isn't between 0 and 3 for a valid suit
+         * @version 1.1
          * @author joebr
          */
         public String getSuitName(){

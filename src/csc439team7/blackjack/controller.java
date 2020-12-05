@@ -4,8 +4,8 @@ import java.util.ArrayList;
 
 /**
  * controller class that controls the operation of the game and the logic with a play blackjack method that gives information to the view
- * @author joebr
- * @version 1.0
+ * @author joebr, Bradley Brown
+ * @version 1.1
  */
 public class controller {
     private static final Logger logger = Logger.getLogger(controller.class.getName());
@@ -17,7 +17,7 @@ public class controller {
     /**
      * constructor for the controller which takes in a view object.
      * @author joebr
-     * @version 1.0
+     * @version 1.1
      */
     public controller(CLIView view) {
         logger.entering(getClass().getName(), "controller");
@@ -28,12 +28,14 @@ public class controller {
 
     /**
      * blackjack method that controls the logic of the game and sends stuff to the view so it can be seen by the player. Currently game starts, you get chips and choose to play or not (which will occur in a loop if we continue development for multiple hands)
-     * @author joebr, jcody
-     * @version 1.5
+     * @author joebr, jcody, Bradley Brown
+     * @version 1.7
      */
     public void playBlackjack() {
         logger.entering(getClass().getName(), "playBlackjack");
         shoe myShoe = new shoe(5);
+        int size = myShoe.numDecks();
+        int minimum = size/5;
         chips = view.buyChips();
 
         while(true) {
@@ -52,6 +54,11 @@ public class controller {
             int playerTotal = 0;
             int dealerTotal = 0;
             int winner = -1;
+            if(size == minimum){
+                shoe refill = new shoe(5);
+                myShoe = refill;
+                logger.info("shoe is refilled");
+            }
 
             card dealerCard1 = myShoe.pick();
             card dealerCard2 = myShoe.pick();
@@ -71,6 +78,7 @@ public class controller {
             while (true) {
                 response = view.play();
                 if (response.equals("Hit")) {
+                    logger.info("player hits");
                     card hitCard = myShoe.pick();
                     playerhand.addCard(hitCard);
                     numPlayerCards += 1;
@@ -86,6 +94,7 @@ public class controller {
                         break;
                     }
                 } else if (response.equals("Stand")) {
+                    logger.info("player stands");
                     playerTotal = 0;
                     ArrayList<card> phand = playerhand.listCards();
                     for (int i = 0; i < phand.size(); i++) {
@@ -93,6 +102,7 @@ public class controller {
                     }
                     break;
                 } else if (response.equals("Double")){
+                    logger.info("player doubles");
                     int sitch;
                     if(numPlayerCards != 2){
                         sitch = 1;
@@ -156,6 +166,7 @@ public class controller {
 
                if (winner == 0) {
                    chips += (2 * bet);
+                   logger.info("player receives chips equal to double their bet");
                }
            }
             logger.exiting(getClass().getName(), "playBlackjack");

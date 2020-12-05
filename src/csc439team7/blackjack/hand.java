@@ -4,7 +4,7 @@ import java.util.logging.Logger;
 
 /**
  * The hand class is an ArrayList that is made up of cards. Has methods to add cards, return cards to the deck, find the size of the hand.
- * @version 1.0
+ * @version 1.1
  * @author Bradley Brown
  */
 class hand {
@@ -13,14 +13,14 @@ class hand {
 
     /**
      * Default hand constructor.
-     * @version 1.0
+     * @version 1.1
      * @author Bradley Brown
      */
     public hand(){ }
 
     /**
      * Adds a card to the hand
-     * @version 1.0
+     * @version 1.1
      * @param card
      * @author Bradley Brown
      */
@@ -33,7 +33,7 @@ class hand {
 
     /**
      * Returns cards to the deck, and removes the cards from the hand
-     * @version 1.0
+     * @version 1.1
      * @author Bradley Brown
      */
     public ArrayList<card> getCards(){
@@ -49,6 +49,7 @@ class hand {
 
     /**
      * method for printing out the cards in the hand without removal for printing for the user.
+     * @version 1.1
      * @author joebr
      */
     public ArrayList<card> listCards() {
@@ -61,10 +62,13 @@ class hand {
 
     /**
      * Returns hand size.
-     * @version 1.0
+     * @version 1.1
      * @author Bradley Brown
      */
     public int size(){
+        logger.entering(getClass().getName(), "size");
+        logger.info("size of hand obtained");
+        logger.exiting(getClass().getName(), "size");
         return hand.size();
     }
 }
