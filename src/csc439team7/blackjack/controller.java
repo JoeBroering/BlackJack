@@ -40,6 +40,7 @@ public class controller {
 
         while(true) {
 
+
             try {
                 response = view.start(chips);
             } catch (Exception E) {
@@ -50,11 +51,11 @@ public class controller {
 
             bet = view.promptBet(chips);
             chips = chips - bet;
-
+            int currentSize=myShoe.numDecks();
             int playerTotal = 0;
             int dealerTotal = 0;
             int winner = -1;
-            if(size == minimum){
+            if(currentSize == minimum){
                 shoe refill = new shoe(5);
                 myShoe = refill;
                 logger.info("shoe is refilled");
