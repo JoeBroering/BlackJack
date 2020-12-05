@@ -1,23 +1,18 @@
 package csc439team7.blackjack;
 
+import java.io.ByteArrayInputStream;
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 import java.util.logging.Logger;
 
-/**
- * The CLIview implements the abstract methods in the view.
- * @version 1.5
- * @author joebr, jcody
- */
-public class CLIView extends view{
+public class testView extends view{
     private static final Logger logger = Logger.getLogger(hand.class.getName());
-
 
     /**
      * the buyChips method requests user input for a number of chips to begin the game with
-     * @author joebr
-     * @version 1.0
+     * @author joebr, jcody
+     * @version 1.5
      */
     @Override
     int buyChips() {
@@ -232,6 +227,5 @@ public class CLIView extends view{
             System.out.println("Your bet doubles and you take one hit then stand");
         }
     }
-
 
 }
