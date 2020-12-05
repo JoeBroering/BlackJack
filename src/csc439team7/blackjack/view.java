@@ -52,4 +52,21 @@ abstract void flipDealer(hand d);
      * @author joebr
      */
 abstract int compare(int player, int dealer);
+
+    /**
+     * abstract bust method that tells which player busted
+     * @author joebr
+     */
+    abstract void bust(int i);
+
+    /**abstract method for when the user can double their bet
+     * @author Jackson Cody
+     */
+   abstract void betDouble(int sitch);
+
+    /**
+     * printCard method for printing the cards in the view
+     * @author joebr
+     */
+    abstract void printCard(card dealerCard) throws InterruptedException;
 }

@@ -11,7 +11,7 @@ public class main {
     /**
      * main method that creates a view, and then a controller that has a constructor using that view that then calls the playblackjack method
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         logger.entering(main.class.getName(), "main");
 
         CLIView view = new CLIView();

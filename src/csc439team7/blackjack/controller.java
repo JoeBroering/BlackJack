@@ -9,7 +9,7 @@ import java.util.ArrayList;
  */
 public class controller {
     private static final Logger logger = Logger.getLogger(controller.class.getName());
-    private CLIView view;
+    private view view;
     private int chips;
     private int bet;
     private String response;
@@ -21,6 +21,7 @@ public class controller {
      */
     public controller(view view) {
         logger.entering(getClass().getName(), "controller");
+        this.view = view;
         logger.exiting(getClass().getName(), "controller");
     }
 
@@ -30,7 +31,7 @@ public class controller {
      * @author joebr, jcody, Bradley Brown
      * @version 1.7
      */
-    public void playBlackjack() {
+    public void playBlackjack() throws Exception {
         logger.entering(getClass().getName(), "playBlackjack");
         shoe myShoe = new shoe(5);
         int size = myShoe.numDecks();
